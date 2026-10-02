@@ -29,6 +29,9 @@ class _MovieListingState extends State<MovieListing> {
             const Text('Sinners'),
 
             const Text('A short description of Sinners goes here'),
+            const Text('Director Ryan Coogler'),
+            const Text('Genre: Horror, Thriller, Drama'),
+            const Text('Duration: 2hrs 17 minutes'),
 
             DropdownMenu<int>(
               initialSelection: 1,
