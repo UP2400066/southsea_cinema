@@ -44,7 +44,7 @@ class _MovieListingState extends State<MovieListing> {
                 }
               },
               dropdownMenuEntries: [
-                DropdownMenuEntry(value: 1, label: 'Tickett 1'),
+                DropdownMenuEntry(value: 1, label: 'Ticket 1'),
                 DropdownMenuEntry(value: 2, label: 'Ticket 2'),
                 DropdownMenuEntry(value: 3, label: 'Ticket 3'),
                 DropdownMenuEntry(value: 4, label: 'Ticket 4'),
