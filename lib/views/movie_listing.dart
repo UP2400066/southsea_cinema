@@ -24,6 +24,7 @@ class _MovieListingState extends State<MovieListing> {
       ),
       drawer: const NavDrawer(),
       body: Container(
+        color: cinemaBrandDark,
         child: Column(
           children: [
             const Text('Sinners'),
