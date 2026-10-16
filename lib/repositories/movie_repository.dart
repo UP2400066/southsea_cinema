@@ -12,7 +12,7 @@ class MovieRepository {
         runtime: '2hrs 17m',
         screeningTime: '18:00',
         ticketPrice: 10.00,
-        posterPath: 'assets/images/sinners.png',
+        posterPath: 'assets/images/sinners.jpg',
         ),
         Movie(
           id: '2',
@@ -22,7 +22,7 @@ class MovieRepository {
           runtime: '2hrs 7m',
           screeningTime: '20:00',
           ticketPrice: 10.00,
-          posterPath: 'assets/images/kraven_the_hunter.png',
+          posterPath: 'assets/images/kraven_the_hunter.jpg',
         ),
     ];
   }
