@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
@@ -39,13 +38,11 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-
             Image.asset(
               widget.movie.posterPath,
               height: 200,
               fit: BoxFit.contain,
             ),
-
             Text(
               widget.movie.title,
               style: const TextStyle(
@@ -53,19 +50,13 @@ class _MovieListingState extends State<MovieListing> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-
             Text(widget.movie.synopsis),
-
             Text('Age rating: ${widget.movie.ageRating}'),
-
             Text('Duration: ${widget.movie.runtime}'),
-
             Text('Screening time: ${widget.movie.screeningTime}'),
-
             Text(
               'Ticket price: ${widget.movie.formattedPrice}',
             ),
-
             DropdownMenu<int>(
               initialSelection: 1,
               onSelected: (int? value) {
@@ -83,7 +74,6 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 5, label: 'Ticket 5'),
               ],
             ),
-
             ElevatedButton(
               onPressed: () {
                 setState(() {
@@ -93,7 +83,6 @@ class _MovieListingState extends State<MovieListing> {
               },
               child: const Text('Add to order'),
             ),
-
             Text(_bookingFeedback),
           ],
         ),
