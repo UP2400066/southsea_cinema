@@ -16,15 +16,24 @@ class SouthseaCinemaApp extends StatelessWidget {
     return MaterialApp(
       title: 'Southsea Cinema & Arts Centre',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData(
+        brightness: Brightness.dark,
         scaffoldBackgroundColor: cinemaBackground,
         colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.dark,
           seedColor: cinemaBrand,
           primary: cinemaBrand,
           surface: cinemaSurface,
         ),
+        cardTheme: CardThemeData(
+          color: cinemaSurface,
+          elevation: 2,
+          margin: const EdgeInsets.symmetric(
+            horizontal: 12,
+            vertical: 8,
+          ),
+        ),
       ),
-
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeView(),

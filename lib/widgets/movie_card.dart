@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import '../models/movie.dart';
+import '../constants.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -13,6 +14,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: cinemaSurface,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,6 +31,7 @@ class MovieCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: cinemaFontWhite,
               ),
             ),
           ),
@@ -37,11 +40,20 @@ class MovieCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Age rating: ${movie.ageRating}'),
+                Text(
+                  'Age rating: ${movie.ageRating}',
+                  style: const TextStyle(color: cinemaFontWhite),
+                ),
                 const SizedBox(height: 8),
-                Text(movie.synopsis),
+                Text(
+                  movie.synopsis,
+                  style: const TextStyle(color: cinemaFontWhite),
+                ),
                 const SizedBox(height: 8),
-                Text('Screening time: ${movie.screeningTime}'),
+                Text(
+                  'Screening time: ${movie.screeningTime}',
+                  style: const TextStyle(color: cinemaFontWhite),
+                ),
                 const SizedBox(height: 12),
                 SizedBox(
                   width: double.infinity,
