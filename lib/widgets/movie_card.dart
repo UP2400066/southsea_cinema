@@ -22,7 +22,6 @@ class MovieCard extends StatelessWidget {
             width: double.infinity,
             fit: BoxFit.cover,
           ),
-
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
@@ -33,7 +32,6 @@ class MovieCard extends StatelessWidget {
               ),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Column(
@@ -41,13 +39,10 @@ class MovieCard extends StatelessWidget {
               children: [
                 Text('Age rating: ${movie.ageRating}'),
                 const SizedBox(height: 8),
-
                 Text(movie.synopsis),
                 const SizedBox(height: 8),
-
                 Text('Screening time: ${movie.screeningTime}'),
                 const SizedBox(height: 12),
-
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
