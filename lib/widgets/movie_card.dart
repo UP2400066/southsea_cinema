@@ -45,6 +45,17 @@ class MovieCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text('Screening time: ${movie.screeningTime}'),
                 const SizedBox(height: 12),
+
+                
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      debugPrint('Booking ${movie.title}');
+                    },
+                    child: const Text('Book Now'),
+                  ),
+                ),
               ],
             ),
           ),
