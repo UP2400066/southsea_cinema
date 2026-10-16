@@ -1,5 +1,5 @@
 
-import '../models/movie.dart';
+import '../Models/movie.dart';
 
 class MovieRepository {
   List<Movie> getMovies() {

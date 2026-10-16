@@ -3,7 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
-
+import 'package:southsea_cinema/Models/movie.dart';
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 

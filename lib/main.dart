@@ -4,6 +4,8 @@ import 'package:southsea_cinema/views/home_view.dart';
 import 'package:southsea_cinema/views/movie_listing.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
 
+ 
+
 void main() {
   runApp(const SouthseaCinemaApp());
 }

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
-import 'package:southsea_cinema/models/movie.dart';
+import 'package:southsea_cinema/Models/movie.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({
@@ -63,7 +63,7 @@ class _MovieListingState extends State<MovieListing> {
             Text('Screening time: ${widget.movie.screeningTime}'),
 
             Text(
-              'Ticket price: £${widget.movie.ticketPrice.toStringAsFixed(2)}',
+              'Ticket price: ${widget.movie.formattedPrice}',
             ),
 
             DropdownMenu<int>(

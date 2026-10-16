@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-import '../models/movie.dart';
-import '../constants.dart';
+import '../Models/movie.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -14,7 +13,6 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: cinemaSurface,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,7 +20,7 @@ class MovieCard extends StatelessWidget {
             movie.posterPath,
             height: 200,
             width: double.infinity,
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
@@ -31,7 +29,6 @@ class MovieCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: cinemaFontWhite,
               ),
             ),
           ),
@@ -40,20 +37,11 @@ class MovieCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Age rating: ${movie.ageRating}',
-                  style: const TextStyle(color: cinemaFontWhite),
-                ),
+                Text('Age rating: ${movie.ageRating}'),
                 const SizedBox(height: 8),
-                Text(
-                  movie.synopsis,
-                  style: const TextStyle(color: cinemaFontWhite),
-                ),
+                Text(movie.synopsis),
                 const SizedBox(height: 8),
-                Text(
-                  'Screening time: ${movie.screeningTime}',
-                  style: const TextStyle(color: cinemaFontWhite),
-                ),
+                Text('Screening time: ${movie.screeningTime}'),
                 const SizedBox(height: 12),
                 SizedBox(
                   width: double.infinity,
