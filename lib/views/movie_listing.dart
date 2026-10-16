@@ -1,9 +1,16 @@
+
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/models/movie.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  const MovieListing({
+    super.key,
+    required this.movie,
+  });
+
+  final Movie movie;
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -17,23 +24,47 @@ class _MovieListingState extends State<MovieListing> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(appTitle, style: cinemaHeaderStyle),
-        backgroundColor: cinemaSurface,
+        title: const Text(
+          appTitle,
+          style: cinemaHeaderStyle,
+        ),
+        backgroundColor: const Color.fromARGB(255, 113, 139, 205),
         iconTheme: const IconThemeData(color: cinemaBrand),
         elevation: 0,
       ),
       drawer: const NavDrawer(),
       body: Container(
         color: cinemaBrandDark,
+        width: double.infinity,
         child: Column(
           children: [
-            const Text('Sinners'),
+            const SizedBox(height: 16),
 
-            const Text('A short description of Sinners goes here'),
-            
-            const Text('Director: Ryan Coogler'),
-            const Text('Genre: Horror, Thriller, Drama'),
-            const Text('Duration: 2hrs 17 minutes'),
+            Image.asset(
+              widget.movie.posterPath,
+              height: 200,
+              fit: BoxFit.contain,
+            ),
+
+            Text(
+              widget.movie.title,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            Text(widget.movie.synopsis),
+
+            Text('Age rating: ${widget.movie.ageRating}'),
+
+            Text('Duration: ${widget.movie.runtime}'),
+
+            Text('Screening time: ${widget.movie.screeningTime}'),
+
+            Text(
+              'Ticket price: £${widget.movie.ticketPrice.toStringAsFixed(2)}',
+            ),
 
             DropdownMenu<int>(
               initialSelection: 1,
