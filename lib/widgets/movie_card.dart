@@ -41,12 +41,13 @@ class MovieCard extends StatelessWidget {
               children: [
                 Text('Age rating: ${movie.ageRating}'),
                 const SizedBox(height: 8),
+
                 Text(movie.synopsis),
                 const SizedBox(height: 8),
+
                 Text('Screening time: ${movie.screeningTime}'),
                 const SizedBox(height: 12),
 
-                
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
