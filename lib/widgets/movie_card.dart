@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import '../Models/movie.dart';
+import '../constants.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -11,48 +13,101 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 28.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            movie.posterPath,
-            height: 200,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Text(
-              movie.title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Age rating: ${movie.ageRating}'),
-                const SizedBox(height: 8),
-                Text(movie.synopsis),
-                const SizedBox(height: 8),
-                Text('Screening time: ${movie.screeningTime}'),
-                const SizedBox(height: 12),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      debugPrint('Booking ${movie.title}');
-                    },
-                    child: const Text('Book Now'),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Text(
+                  movie.title.toUpperCase(),
+                  style: const TextStyle(
+                    color: cinemaBrand,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '(${movie.ageRating})',
+                style: const TextStyle(
+                  color: cinemaFontMuted,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 16),
+
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                movie.posterPath,
+                width: 135,
+                height: 205,
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  movie.synopsis,
+                  style: const TextStyle(
+                    color: cinemaFontWhite,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 20),
+
+          const Text(
+            'BOOK TICKETS',
+            style: TextStyle(
+              color: cinemaFontWhite,
+              fontSize: 16,
             ),
+          ),
+
+          const SizedBox(height: 20),
+
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  movie.screeningTime,
+                  style: const TextStyle(
+                    color: cinemaFontWhite,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: cinemaBrand,
+                  foregroundColor: cinemaFontWhite,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 22,
+                    vertical: 16,
+                  ),
+                ),
+                onPressed: () {
+                  debugPrint('Booking ${movie.title}');
+                },
+                child: const Text('BOOK NOW'),
+              ),
+            ],
           ),
         ],
       ),
