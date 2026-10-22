@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../Models/movie.dart';
 import '../constants.dart';
+import '../views/movie_listing.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -41,9 +42,7 @@ class MovieCard extends StatelessWidget {
               ),
             ],
           ),
-
           const SizedBox(height: 16),
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -65,9 +64,7 @@ class MovieCard extends StatelessWidget {
               ),
             ],
           ),
-
           const SizedBox(height: 20),
-
           const Text(
             'BOOK TICKETS',
             style: TextStyle(
@@ -75,9 +72,7 @@ class MovieCard extends StatelessWidget {
               fontSize: 16,
             ),
           ),
-
           const SizedBox(height: 20),
-
           Row(
             children: [
               Expanded(
@@ -103,7 +98,12 @@ class MovieCard extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  debugPrint('Booking ${movie.title}');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MovieListing(movie: movie),
+                    ),
+                  );
                 },
                 child: const Text('BOOK NOW'),
               ),
