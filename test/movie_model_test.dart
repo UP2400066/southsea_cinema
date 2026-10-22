@@ -32,5 +32,29 @@ void main() {
 
       expect(movie.formattedPrice, '£7.50');
     });
+
+        test('stores movie details correctly', () {
+      final movie = Movie(
+        id: '1',
+        title: 'Sinners',
+        synopsis: 'A test synopsis',
+        ageRating: '15',
+        runtime: '2hrs 17m',
+        screeningTime: '18:00',
+        ticketPrice: 10.0,
+        posterPath: 'assets/images/sinners.jpg',
+      );
+
+      expect(movie.id, '1');
+      expect(movie.title, 'Sinners');
+      expect(movie.synopsis, 'A test synopsis');
+      expect(movie.ageRating, '15');
+      expect(movie.runtime, '2hrs 17m');
+      expect(movie.screeningTime, '18:00');
+      expect(movie.ticketPrice, 10.0);
+      expect(movie.posterPath, 'assets/images/sinners.jpg');
+    });
   });
 }
+
+
