@@ -35,6 +35,7 @@ class _MovieListingState extends State<MovieListing> {
       body: Container(
         color: cinemaBrandDark,
         width: double.infinity,
+        child: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(height: 16),
@@ -87,6 +88,7 @@ class _MovieListingState extends State<MovieListing> {
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }

@@ -12,7 +12,7 @@ void main() {
 
       expect(find.text('Welcome to Southsea Cinema'), findsOneWidget);
       expect(find.byType(MovieCard), findsWidgets);
-      expect(find.text('Book Now'), findsWidgets);
+      expect(find.text('BOOK NOW'), findsWidgets);
     },
   );
 
@@ -21,7 +21,7 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(const SouthseaCinemaApp());
 
-      await tester.tap(find.text('Book Now').first);
+      await tester.tap(find.text('BOOK NOW').first);
       await tester.pumpAndSettle();
 
       expect(find.byType(MovieListing), findsOneWidget);
