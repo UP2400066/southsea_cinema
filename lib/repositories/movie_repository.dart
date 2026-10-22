@@ -16,8 +16,7 @@ class MovieRepository {
       Movie(
         id: '2',
         title: 'Kraven the Hunter',
-        synopsis:
-            'Sergei Kravinoff is a skilled hunter whose difficult relationship with his ruthless father shapes his path through life. After a series of events gives him extraordinary abilities, Sergei becomes Kraven, a powerful hunter driven by instinct, strength and a desire to prove himself. As he faces dangerous enemies and confronts his past, he must decide what kind of man he wants to become.',
+        synopsis:'Sergei Kravinoff is a skilled hunter whose difficult relationship with his ruthless father shapes his path through life. After a series of events gives him extraordinary abilities, Sergei becomes Kraven, a powerful hunter driven by instinct, strength and a desire to prove himself. As he faces dangerous enemies and confronts his past, he must decide what kind of man he wants to become.',
         ageRating: '15',
         runtime: '2hrs 7m',
         screeningTime: '20:00',
