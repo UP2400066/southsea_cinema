@@ -33,7 +33,7 @@ void main() {
       expect(movie.formattedPrice, '£7.50');
     });
 
-        test('stores movie details correctly', () {
+    test('stores movie details correctly', () {
       final movie = Movie(
         id: '1',
         title: 'Sinners',
@@ -56,5 +56,3 @@ void main() {
     });
   });
 }
-
-
