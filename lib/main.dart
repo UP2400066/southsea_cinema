@@ -22,7 +22,7 @@ class SouthseaCinemaApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.dark,
           seedColor: cinemaBrand,
-          primary: cinemaBrand,
+          primary: const Color.fromARGB(255, 37, 96, 114),
           surface: cinemaSurface,
         ),
         cardTheme: CardThemeData(
