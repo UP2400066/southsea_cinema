@@ -25,11 +25,7 @@ class _MovieListingState extends State<MovieListing> {
       appBar: AppBar(
         title: const Text(
           appTitle,
-          style: cinemaHeaderStyle,
         ),
-        backgroundColor: const Color.fromARGB(255, 113, 139, 205),
-        iconTheme: const IconThemeData(color: cinemaBrand),
-        elevation: 0,
       ),
       drawer: const NavDrawer(),
       body: Container(
