@@ -1,7 +1,9 @@
+
 import 'package:flutter/material.dart';
 import '../Models/movie.dart';
 import '../constants.dart';
 import '../views/movie_listing.dart';
+import 'package:southsea_cinema/widgets/reusable_button.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -84,27 +86,17 @@ class MovieCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: cinemaBrand,
-                  foregroundColor: cinemaFontWhite,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 22,
-                    vertical: 16,
-                  ),
-                ),
+              SquaredButton(
+                label: 'BOOK NOW',
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MovieListing(movie: movie),
+                      builder: (context) =>
+                          MovieListing(movie: movie),
                     ),
                   );
                 },
-                child: const Text('BOOK NOW'),
               ),
             ],
           ),
@@ -113,3 +105,4 @@ class MovieCard extends StatelessWidget {
     );
   }
 }
+
