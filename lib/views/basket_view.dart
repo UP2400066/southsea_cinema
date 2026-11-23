@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
@@ -47,19 +48,40 @@ class _BasketViewState extends State<BasketView> {
                           'Quantity: ${item.quantity} '
                           '• Price: ${item.movie.formattedPrice} each',
                         ),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            setState(() {
+                              widget.basketRepository.removeTicket(index);
+                            });
+                          },
+                        ),
                       );
                     },
                   ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Text(
-              'Total: £${widget.basketRepository.getTotal().toStringAsFixed(2)}',
-              style: const TextStyle(
-                color: cinemaFontWhite,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Column(
+              children: [
+                Text(
+                  'Total: £${widget.basketRepository.getTotal().toStringAsFixed(2)}',
+                  style: const TextStyle(
+                    color: cinemaFontWhite,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      widget.basketRepository.clearBasket();
+                    });
+                  },
+                  child: const Text('Clear Basket'),
+                ),
+              ],
             ),
           ),
         ],
