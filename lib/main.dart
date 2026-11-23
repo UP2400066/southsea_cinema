@@ -5,13 +5,25 @@ import 'package:southsea_cinema/views/movie_listing.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
 import 'package:southsea_cinema/views/basket_view.dart';
 import 'package:southsea_cinema/views/settings_view.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 void main() {
-  runApp(const SouthseaCinemaApp());
+  final basketRepository = BasketRepository();
+
+  runApp(
+    SouthseaCinemaApp(
+      basketRepository: basketRepository,
+    ),
+  );
 }
 
 class SouthseaCinemaApp extends StatelessWidget {
-  const SouthseaCinemaApp({super.key});
+  const SouthseaCinemaApp({
+    super.key,
+    required this.basketRepository,
+  });
+
+  final BasketRepository basketRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +32,6 @@ class SouthseaCinemaApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        
         appBarTheme: const AppBarTheme(
           backgroundColor: cinemaSurface,
           iconTheme: IconThemeData(color: cinemaBrand),
@@ -45,13 +56,18 @@ class SouthseaCinemaApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeView(),
+        '/': (context) => HomeView(
+          basketRepository: basketRepository,
+        ),
         '/listing': (context) {
           return MovieListing(
             movie: MovieRepository().getMovies().first,
+            basketRepository: basketRepository,
           );
         },
-        '/basket': (context) => const BasketView(),
+        '/basket': (context) => BasketView(
+          basketRepository: basketRepository,
+        ),
         '/settings': (context) => const SettingsView(),
       },
     );

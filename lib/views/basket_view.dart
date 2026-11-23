@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 class BasketView extends StatelessWidget {
-  const BasketView({super.key});
+  const BasketView({
+    super.key,
+    required this.basketRepository,
+  });
+
+  final BasketRepository basketRepository;
 
   @override
   Widget build(BuildContext context) {

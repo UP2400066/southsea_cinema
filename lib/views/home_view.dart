@@ -3,10 +3,15 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  const HomeView({
+    super.key,
+    required this.basketRepository,
+  });
 
+final BasketRepository basketRepository;
   @override
   Widget build(BuildContext context) {
     final movies = MovieRepository().getMovies();
@@ -39,6 +44,7 @@ class HomeView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return MovieCard(
                   movie: movies[index],
+                  basketRepository: basketRepository,
                 );
               },
             ),

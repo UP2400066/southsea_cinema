@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/Models/movie.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({
     super.key,
     required this.movie,
+    required this.basketRepository,
   });
 
   final Movie movie;
+  final BasketRepository basketRepository;
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -71,9 +74,15 @@ class _MovieListingState extends State<MovieListing> {
                   DropdownMenuEntry(value: 5, label: 'Ticket 5'),
                 ],
               ),
+
+
               ElevatedButton(
                 onPressed: () {
                   setState(() {
+                    for (int i = 0; i < _ticketQuantity; i++) {
+                      widget.basketRepository.addTicket(widget.movie);
+                    }
+
                     _bookingFeedback =
                         '$_ticketQuantity tickets added to your order';
                   });
