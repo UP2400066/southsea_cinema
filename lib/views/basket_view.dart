@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
+import 'package:southsea_cinema/widgets/reusable_button.dart';
 
 class BasketView extends StatefulWidget {
   const BasketView({
@@ -73,15 +73,14 @@ class _BasketViewState extends State<BasketView> {
                   ),
                 ),
                 const SizedBox(height: 12),
-                ElevatedButton(
+                SquaredButton(
+                  label: 'Clear Basket',
                   onPressed: () {
                     setState(() {
                       widget.basketRepository.clearBasket();
                     });
                   },
-                  child: const Text('Clear Basket'),
-                ),
-              ],
+                ),                              ],
             ),
           ),
         ],
@@ -89,3 +88,4 @@ class _BasketViewState extends State<BasketView> {
     );
   }
 }
+

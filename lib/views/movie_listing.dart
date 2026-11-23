@@ -3,6 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/Models/movie.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
+import 'package:southsea_cinema/widgets/reusable_button.dart';
 
 class MovieListing extends StatefulWidget {
   const MovieListing({
@@ -75,8 +76,8 @@ class _MovieListingState extends State<MovieListing> {
                 ],
               ),
 
-
-              ElevatedButton(
+              SquaredButton(
+                label: 'Add to order',
                 onPressed: () {
                   setState(() {
                     for (int i = 0; i < _ticketQuantity; i++) {
@@ -87,7 +88,6 @@ class _MovieListingState extends State<MovieListing> {
                         '$_ticketQuantity tickets added to your order';
                   });
                 },
-                child: const Text('Add to order'),
               ),
               Text(_bookingFeedback),
             ],
