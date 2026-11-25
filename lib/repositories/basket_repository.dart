@@ -1,4 +1,3 @@
-
 import '../Models/basket_item.dart';
 import '../Models/movie.dart';
 

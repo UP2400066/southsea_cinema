@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
@@ -11,16 +10,18 @@ class HomeView extends StatefulWidget {
   const HomeView({
     super.key,
     required this.basketRepository,
+    this.movieRepository,
   });
 
   final BasketRepository basketRepository;
+  final MovieRepository? movieRepository;
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  final MovieRepository _movieRepository = MovieRepository();
+  late final MovieRepository _movieRepository;
 
   List<Movie> _movies = [];
   bool _isLoading = true;
@@ -29,6 +30,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
+    _movieRepository = widget.movieRepository ?? MovieRepository();
     _loadMovies();
   }
 
@@ -43,10 +45,12 @@ class _HomeViewState extends State<HomeView> {
         _isLoading = false;
       });
     } catch (error) {
+      debugPrint("MOVIE LOADING ERROR: $error");
+
       if (!mounted) return;
 
       setState(() {
-        _errorMessage = 'Unable to load films. Please try again.';
+        _errorMessage = 'Unable to load films: $error';
         _isLoading = false;
       });
     }
@@ -101,4 +105,3 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
-

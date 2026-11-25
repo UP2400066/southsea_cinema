@@ -36,22 +36,24 @@ class _SettingsViewState extends State<SettingsView> {
 
     super.dispose();
   }
+
   void _saveSettings() {
-  final String name = _nameController.text.trim();
-  final String address = _addressController.text.trim();
-  final String email = _emailController.text.trim();
+    final String name = _nameController.text.trim();
+    final String address = _addressController.text.trim();
+    final String email = _emailController.text.trim();
 
-  final UserSettings settings = UserSettings(
-    name: name,
-    address: address,
-    email: email,
-    receiveNewsletter: _receiveNewsletter,
-  );
+    final UserSettings settings = UserSettings(
+      name: name,
+      address: address,
+      email: email,
+      receiveNewsletter: _receiveNewsletter,
+    );
 
-  setState(() {
-    _confirmationMessage = 'Settings saved for ${settings.name}';
-  });
-}
+    setState(() {
+      _confirmationMessage = 'Settings saved for ${settings.name}';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +74,6 @@ class _SettingsViewState extends State<SettingsView> {
               ),
             ),
             const SizedBox(height: 16),
-
             TextField(
               controller: _nameController,
               decoration: const InputDecoration(
@@ -92,7 +93,6 @@ class _SettingsViewState extends State<SettingsView> {
               ),
             ),
             const SizedBox(height: 16),
-
             TextField(
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
@@ -126,7 +126,6 @@ class _SettingsViewState extends State<SettingsView> {
                 child: const Text('Save Settings'),
               ),
             ),
-
             if (_confirmationMessage.isNotEmpty) ...[
               const SizedBox(height: 12),
               Text(
@@ -137,7 +136,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
             ],
-
           ],
         ),
       ),

@@ -94,11 +94,10 @@ class MovieCard extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>MovieListing(
-                          movie: movie,
-                          basketRepository: basketRepository,
-                      )
-                    ),
+                        builder: (context) => MovieListing(
+                              movie: movie,
+                              basketRepository: basketRepository,
+                            )),
                   );
                 },
               ),
@@ -109,4 +108,3 @@ class MovieCard extends StatelessWidget {
     );
   }
 }
-

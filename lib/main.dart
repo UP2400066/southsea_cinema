@@ -21,9 +21,11 @@ class SouthseaCinemaApp extends StatelessWidget {
   const SouthseaCinemaApp({
     super.key,
     required this.basketRepository,
+    this.movieRepository,
   });
 
   final BasketRepository basketRepository;
+  final MovieRepository? movieRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +59,9 @@ class SouthseaCinemaApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomeView(
-          basketRepository: basketRepository,
-        ),
-        
+              basketRepository: basketRepository,
+              movieRepository: movieRepository,
+            ),
         '/listing': (context) {
           return FutureBuilder(
             future: MovieRepository().loadMoviesFromAsset(),
@@ -84,8 +86,8 @@ class SouthseaCinemaApp extends StatelessWidget {
           );
         },
         '/basket': (context) => BasketView(
-          basketRepository: basketRepository,
-        ),
+              basketRepository: basketRepository,
+            ),
         '/settings': (context) => const SettingsView(),
       },
     );

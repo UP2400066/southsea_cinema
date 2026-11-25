@@ -80,7 +80,8 @@ class _BasketViewState extends State<BasketView> {
                       widget.basketRepository.clearBasket();
                     });
                   },
-                ),                              ],
+                ),
+              ],
             ),
           ),
         ],
@@ -88,4 +89,3 @@ class _BasketViewState extends State<BasketView> {
     );
   }
 }
-

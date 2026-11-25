@@ -75,7 +75,6 @@ class _MovieListingState extends State<MovieListing> {
                   DropdownMenuEntry(value: 5, label: 'Ticket 5'),
                 ],
               ),
-
               SquaredButton(
                 label: 'Add to order',
                 onPressed: () {
@@ -97,4 +96,3 @@ class _MovieListingState extends State<MovieListing> {
     );
   }
 }
-
