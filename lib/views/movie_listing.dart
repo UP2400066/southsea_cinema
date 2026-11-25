@@ -97,3 +97,4 @@ class _MovieListingState extends State<MovieListing> {
     );
   }
 }
+

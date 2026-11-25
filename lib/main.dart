@@ -59,10 +59,28 @@ class SouthseaCinemaApp extends StatelessWidget {
         '/': (context) => HomeView(
           basketRepository: basketRepository,
         ),
+        
         '/listing': (context) {
-          return MovieListing(
-            movie: MovieRepository().getMovies().first,
-            basketRepository: basketRepository,
+          return FutureBuilder(
+            future: MovieRepository().loadMoviesFromAsset(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Scaffold(
+                  body: Center(child: CircularProgressIndicator()),
+                );
+              }
+
+              if (snapshot.hasError || !snapshot.hasData) {
+                return const Scaffold(
+                  body: Center(child: Text('Unable to load films')),
+                );
+              }
+
+              return MovieListing(
+                movie: snapshot.data!.first,
+                basketRepository: basketRepository,
+              );
+            },
           );
         },
         '/basket': (context) => BasketView(

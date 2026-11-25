@@ -1,8 +1,10 @@
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/main.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
 import 'package:southsea_cinema/views/movie_listing.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
+
 void main() {
   testWidgets(
     'Home page displays title, movie cards and booking buttons',
@@ -12,6 +14,8 @@ void main() {
           basketRepository: BasketRepository(),
         ),
       );
+
+      await tester.pumpAndSettle();
 
       expect(find.text('Welcome to Southsea Cinema'), findsOneWidget);
       expect(find.byType(MovieCard), findsWidgets);
@@ -27,6 +31,8 @@ void main() {
           basketRepository: BasketRepository(),
         ),
       );
+
+      await tester.pumpAndSettle();
 
       await tester.tap(find.text('BOOK NOW').first);
       await tester.pumpAndSettle();
