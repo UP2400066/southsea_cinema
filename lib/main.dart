@@ -6,7 +6,8 @@ import 'package:southsea_cinema/repositories/movie_repository.dart';
 import 'package:southsea_cinema/views/basket_view.dart';
 import 'package:southsea_cinema/views/settings_view.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
-
+import 'package:southsea_cinema/views/movies_view.dart';
+import 'package:southsea_cinema/Models/movie.dart';
 void main() {
   final basketRepository = BasketRepository();
 
@@ -63,7 +64,7 @@ class SouthseaCinemaApp extends StatelessWidget {
               movieRepository: movieRepository,
             ),
         '/listing': (context) {
-          return FutureBuilder(
+          return FutureBuilder<List<Movie>>(
             future: MovieRepository().loadMoviesFromAsset(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -78,8 +79,8 @@ class SouthseaCinemaApp extends StatelessWidget {
                 );
               }
 
-              return MovieListing(
-                movie: snapshot.data!.first,
+              return MoviesView(
+                movies: snapshot.data!,
                 basketRepository: basketRepository,
               );
             },
